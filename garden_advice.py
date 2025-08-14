@@ -1,40 +1,31 @@
-"""
-garden_advice.py (Issue 1)
+# Hardcoded values for the season and plant type
+season = "summer"  # TODO: Replace with input() to allow user interaction.
+plant_type = "flower"  # TODO: Replace with input() to allow user interaction.
 
-Refactor into functions and use dictionaries for advice.
-Still uses hardcoded values for season/plant_type (will be replaced in Issue 2).
-"""
+# Variable to hold gardening advice
+advice = ""
 
-from typing import List
+# Determine advice based on the season
+if season == "summer":
+    advice += "Water your plants regularly and provide some shade.\n"
+elif season == "winter":
+    advice += "Protect your plants from frost with covers.\n"
+else:
+    advice += "No advice for this season.\n"
 
-# Hardcoded values for the season and plant type (will be replaced in Issue 2)
-season = "summer"      # TODO (Issue 2): Replace with argparse/inputs
-plant_type = "flower"  # TODO (Issue 2): Replace with argparse/inputs
+# Determine advice based on the plant type
+if plant_type == "flower":
+    advice += "Use fertiliser to encourage blooms."
+elif plant_type == "vegetable":
+    advice += "Keep an eye out for pests!"
+else:
+    advice += "No advice for this type of plant."
 
-# Advice dictionaries (easy to extend)
-SEASON_ADVICE = {
-    "spring": "Start seedlings and prepare soil; watch late frosts.\n",
-    "summer": "Water regularly and mulch to retain moisture; provide some shade.\n",
-    "autumn": "Deadhead and collect seeds; start composting fallen leaves.\n",
-    "winter": "Protect plants from frost with covers; prune where appropriate.\n",
-}
+# Print the generated advice
+print(advice)
 
-PLANT_ADVICE = {
-    "flower": "Use fertiliser to encourage blooms.",
-    "vegetable": "Keep an eye out for pests!",
-    "herb": "Pinch back growth to keep plants bushy.",
-}
-
-def get_advice(season_name: str, plant: str) -> str:
-    """Compose advice based on season and plant type."""
-    lines: List[str] = []
-    lines.append(SEASON_ADVICE.get(season_name.lower(), "No advice for this season.\n"))
-    lines.append(PLANT_ADVICE.get(plant.lower(), "No advice for this type of plant."))
-    return "".join(lines)
-
-def main() -> None:
-    advice = get_advice(season, plant_type)
-    print(advice)
-
-if __name__ == "__main__":
-    main()
+# TODO: Examples of possible features to add:
+# - Add detailed comments explaining each block of code.
+# - Refactor the code into functions for better readability and modularity.
+# - Store advice in a dictionary for multiple plants and seasons.
+# - Recommend plants based on the entered season.
